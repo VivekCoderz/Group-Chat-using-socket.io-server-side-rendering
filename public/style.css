@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(206, 206, 206);
+    flex-direction: column;
+    gap: 20px;
+}
+
+.chat{
+    width: 30%;
+    min-width: 350px;
+    height: 90vh;
+    border: 2px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.sendArea{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border: 2px solid green;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+ .sendArea input{
+    padding: 10px 15px;
+    width: 70%;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+}
+
+.sendArea button{
+    padding: 10px 15px;
+    width: 20%;
+    border: none;
+    border-radius: 10px;
+    background-color: green;
+    color: white;
+    font-size: 16px;
+} 
+
+.mssArea{
+    background-color: rgb(200, 197, 197);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.mssArea div{
+    padding: 10px;
+    margin: 10px;
+}
+
+.self{
+    border-radius: 10px;
+    background-color: rgb(6, 71, 6);
+    color: white;
+    max-width: 50%;
+    align-self: end;
+}
+.other{
+    border-radius: 10px;
+    background-color: rgb(166, 220, 166);
+    color: white;
+    max-width: 50%;
+    justify-content: start;
+    align-self: start;
+}
