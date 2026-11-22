@@ -11,12 +11,14 @@ const mssArea = document.querySelector(".mssArea");
 chat.style.display = "none";
 
 sendBtn.addEventListener("click", () => {
+  if (!input.value.trim()) return;
   console.log(input.value);
   socket.emit("send-mss", input.value);
   input.value = "";
 });
 
 loginBtn.addEventListener("click", () => {
+  if (!userName.value.trim()) return;
   socket.emit("newUser", userName.value);
   login.style.display = "none";
   chat.style.display = "flex";
@@ -54,7 +56,12 @@ socket.on("recive-mss", ({ message, userId, userName }) => {
     mss.innerText = message;
   } else {
     mss.classList.add("other");
-    mss.innerHTML = `<b>${userName}</b> : <span>${message}</span>`;
+    // Build with textContent so names/messages can't inject HTML (XSS)
+    const name = document.createElement("b");
+    name.textContent = userName;
+    const text = document.createElement("span");
+    text.textContent = message;
+    mss.append(name, " : ", text);
   }
   console.log(mss);
 
